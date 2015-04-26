@@ -1,3 +1,6 @@
+/*--- 
+* 回文数 121  131
+*---/
 function getHuiwen(num){
     var key = '';
     var ret = [];
