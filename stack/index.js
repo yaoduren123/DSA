@@ -23,6 +23,7 @@ Stack.prototype.clear = function(){
   this.stop = 0;
 }
 
+//数制间相互转换
 function mulBase(num, base) {
   var s = new Stack();
   do {
@@ -34,4 +35,29 @@ function mulBase(num, base) {
      converted += s.pop();
   }
   return converted;
+}
+
+//()匹配
+function braceMatch(str){
+  var stack = new Stack(),
+      i = -1,
+      rword = '',
+      braceMap = {
+        '(' : ')',
+        ')' : '('
+      },
+      len = str.length;
+  while(++i <= len){
+    if(str[i]=='('){
+      stack.push(i)
+    }else if(str[i]==')'){
+      typeof stack.pop() == 'undefined' && console.log(i+':not matched')
+
+    }
+    if(stack.length()){
+      console.log(stack.pop() + ': not matched');
+    }
+  }
+
+
 }
